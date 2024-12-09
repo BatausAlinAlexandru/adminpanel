@@ -5,6 +5,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { UsersComponent } from './pages/users/users.component';
 import { UserEditComponent } from './pages/users/user-edit/user-edit.component';
+import { ProductComponent } from './pages/product/product.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -12,6 +13,8 @@ const routes: Routes = [
 
   { path: 'users', component: UsersComponent, canActivate: [AuthGuard] },
   { path: 'users/edit/:id', component: UserEditComponent, canActivate: [AuthGuard] },
+
+  { path: 'products', component: ProductComponent },
 
   { path: '**', redirectTo: '/not-found' }, // Exemplu de rută wildcard
 
