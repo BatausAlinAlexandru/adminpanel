@@ -16,12 +16,12 @@ export interface User {
 })
 
 export class UserService {
-  private apiUrl = 'https://localhost:32769/api/UserAccount';
+  private apiUrl = 'https://localhost:7198/api/UserAccount';
 
   constructor(private http: HttpClient) { }
 
   public getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.apiUrl}/get-users`);
+    return this.http.get<User[]>(`${this.apiUrl}`);
   }
 
   public deleteUser(id: string): Observable<void> {

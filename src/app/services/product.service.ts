@@ -17,7 +17,7 @@ export interface Product {
   providedIn: 'root',
 })
 export class ProductService {
-  private apiUrl = 'https://localhost:32769/api/Product'; // trebuie facute mai multe endpoint-uri pentru Product in back-end...
+  private apiUrl = 'https://localhost:7198/api/Product'; // trebuie facute mai multe endpoint-uri pentru Product in back-end...
 
   constructor(private http: HttpClient) { }
 

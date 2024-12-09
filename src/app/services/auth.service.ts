@@ -8,7 +8,7 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 })
 export class AuthService {
 
-  private apiUrl = 'https://localhost:32769/api/Authentication';
+  private apiUrl = 'https://localhost:7198/api/Authentication';
   private authenticated = new BehaviorSubject<boolean>(false);
   public isAuthenticated$ = this.authenticated.asObservable();
 
@@ -18,7 +18,7 @@ export class AuthService {
   }
 
   public login(email: string, password: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login`, { email, password }).pipe(
+    return this.http.post(`${this.apiUrl}`, { email, password }).pipe(
       tap((response: any) => {
         const token = response.token;
         if (token) {

@@ -1,85 +1,89 @@
 <!-- src/app/components/product/product.component.html -->
-<div class="container mt-5">
-  <h2 class="text-center mb-4">Lista Produse</h2>
+<body>
+  <div class="position-absolute top-0 start-0 container-fluid mt-5">
+    <div class="container-fluid mt-5">
+      <h2 class="text-center mb-4">Lista Produse</h2>
 
-  <div class="table-responsive">
-    <table class="table table-hover table-bordered table-striped">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nume</th>
-          <th>Preț</th>
-          <th>Descriere</th>
-          <th>Stoc</th>
-          <th>Discount</th>
-          <th>URL Foto</th>
-          <th>Acțiuni</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let product of products">
-          <td>{{ product.id }}</td>
-          <td>{{ product.name }}</td>
-          <td>{{ product.price }}</td>
-          <td>{{ product.description }}</td>
-          <td>{{ product.stoc }}</td>
-          <td>{{ product.discount }}</td>
-          <td>{{ product.pathFoto }}</td>
-          <td>
-            <button class="btn btn-primary btn-sm"
-                    (click)="editProduct(product)">
-              Edit
-            </button>
-            <button class="btn btn-danger btn-sm"
-                    (click)="deleteProduct(product.id)">
-              Delete
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+      <div class="table-responsive">
+        <table class="table table-hover table-bordered table-striped">
+          <thead class="table-dark">
+            <tr>
+              <th>ID</th>
+              <th>Nume</th>
+              <th>Preț</th>
+              <th>Descriere</th>
+              <th>Stoc</th>
+              <th>Discount</th>
+              <th>URL Foto</th>
+              <th>Acțiuni</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of products">
+              <td>{{ product.id }}</td>
+              <td>{{ product.name }}</td>
+              <td>{{ product.price }}</td>
+              <td>{{ product.description }}</td>
+              <td>{{ product.stoc }}</td>
+              <td>{{ product.discount }}</td>
+              <td>{{ product.pathFoto }}</td>
+              <td>
+                <button class="btn btn-primary btn-sm"
+                        (click)="editProduct(product)">
+                  Edit
+                </button>
+                <button class="btn btn-danger btn-sm"
+                        (click)="deleteProduct(product.id)">
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
 
-  <!-- Modal pentru editare -->
-  <ng-template #editModal let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title">Editare Produs</h4>
-      <button type="button"
-              class="close"
-              aria-label="Close"
-              (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <form>
-        <div class="form-group">
-          <label for="name">Nume</label>
-          <input type="text"
-                 id="name"
-                 class="form-control"
-                 [(ngModel)]="selectedProduct.name"
-                 name="name" />
+      <!-- Modal pentru editare -->
+      <ng-template #editModal let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title">Editare Produs</h4>
+          <button type="button"
+                  class="close"
+                  aria-label="Close"
+                  (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-        <div class="form-group">
-          <label for="price">Preț</label>
-          <input type="number"
-                 id="price"
-                 class="form-control"
-                 [(ngModel)]="selectedProduct.price"
-                 name="price" />
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="name">Nume</label>
+              <input type="text"
+                     id="name"
+                     class="form-control"
+                     [(ngModel)]="selectedProduct.name"
+                     name="name" />
+            </div>
+            <div class="form-group">
+              <label for="price">Preț</label>
+              <input type="number"
+                     id="price"
+                     class="form-control"
+                     [(ngModel)]="selectedProduct.price"
+                     name="price" />
+            </div>
+            <!-- Alte câmpuri -->
+          </form>
         </div>
-        <!-- Alte câmpuri -->
-      </form>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="modal.close()">
+            Anulează
+          </button>
+          <button type="button" class="btn btn-success" (click)="saveProduct(modal)">
+            Salvează
+          </button>
+        </div>
+      </ng-template>
     </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" (click)="modal.close()">
-        Anulează
-      </button>
-      <button type="button" class="btn btn-success" (click)="saveProduct(modal)">
-        Salvează
-      </button>
-    </div>
-  </ng-template>
-</div>
+</body>
 
