@@ -16,7 +16,7 @@ export interface User {
 })
 
 export class UserService {
-  private apiUrl = 'https://localhost:32769/api/UserAccount';
+  private apiUrl = 'https://localhost:32773/api/UserAccount';
 
   constructor(private http: HttpClient) { }
 
@@ -29,6 +29,6 @@ export class UserService {
   }
 
   public updateUser(user: User): Observable<User> {
-    return this.http.put<User>(`${this.apiUrl}/${user.id}`, user);
+    return this.http.put<User>(`${this.apiUrl}/update-user-account-admin-panel`, user);
   }
 }
